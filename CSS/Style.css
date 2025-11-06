@@ -1,0 +1,301 @@
+
+:root {
+    --color-fondo: #0a0a1a;        /* Azul oscuro/negro para el fondo */
+    --color-superficie: #1a1a3a;   /* Un azul más claro para tarjetas y secciones */
+    --color-primario: #6d5dfc;     /* Púrpura/Azul vibrante como acento principal */
+    --color-acento: #ff4081;      /* Rosa/Fucsia para detalles llamativos */
+    --color-texto: #f0f0f5;       /* Texto principal (casi blanco) */
+    --color-texto-sec: #a0a0c0;   /* Texto secundario (grisáceo) */
+
+    --fuente-principal: 'Poppins', sans-serif;
+    --radio-borde: 8px;
+    --sombra-caja: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en los enlaces del nav */
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--color-primario);
+    text-align: center;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--color-texto-sec);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-acento);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-primario);
+}
+
+.section-bg {
+    background-color: var(--color-superficie);
+    padding: 5rem 0;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+/* ======== 3. Header y Navegación ======== */
+.navbar {
+    background-color: var(--color-superficie);
+    border-bottom: 2px solid var(--color-primario);
+    padding: 1rem 0;
+    position: sticky; /* Header fijo */
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-texto);
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu li {
+    margin-left: 2rem;
+}
+
+.nav-menu a {
+    color: var(--color-texto-sec);
+    font-weight: 600;
+    font-size: 1rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active { /* 'active' se puede añadir con JS, pero el hover ya da feedback */
+    color: var(--color-acento);
+    border-bottom-color: var(--color-acento);
+}
+
+/* ======== 4. Sección Inicio (Hero) ======== */
+.hero {
+    min-height: 90vh; /* Ocupa casi toda la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(10, 10, 30, 0.8), rgba(10, 10, 30, 0.8)), url('https://via.placeholder.com/1600x900/0a0a1a/1a1a3a?text=Hero+Background+Image');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    color: var(--color-texto-sec);
+    margin-bottom: 2rem;
+}
+
+/* Texto de acento con gradiente (¡Llamativo!) */
+.highlight-text {
+    background: linear-gradient(90deg, var(--color-primario), var(--color-acento));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+/* Botón de Llamada a la Acción (CTA) */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--color-primario), var(--color-acento));
+    color: var(--color-texto);
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radio-borde);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(109, 93, 252, 0.4);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px); /* Efecto de "levantar" */
+    box-shadow: 0 8px 20px rgba(255, 64, 129, 0.5);
+}
+
+/* ======== 5. Sección Sobre Mí ======== */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem; /* Espacio entre la foto y el texto */
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%; /* Foto circular */
+    border: 5px solid var(--color-primario);
+    box-shadow: var(--sombra-caja);
+}
+
+.about-text {
+    flex: 1; /* Ocupa el espacio restante */
+}
+
+/* ======== 6. Sección Proyectos ======== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo */
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background-color: var(--color-superficie);
+    border-radius: var(--radio-borde);
+    overflow: hidden; /* Asegura que la imagen no se salga */
+    box-shadow: var(--sombra-caja);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px); /* Efecto "elevado" al pasar el ratón */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    color: var(--color-primario);
+    font-size: 1.5rem;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+/* ======== 7. Sección Contacto ======== */
+.contact-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links a {
+    color: var(--color-texto-sec);
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.social-links a:hover {
+    color: var(--color-acento);
+}
+
+/* ======== 8. Footer ======== */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: var(--color-fondo);
+    border-top: 1px solid var(--color-superficie);
+    margin-top: 2rem;
+}
+
+footer p {
+    color: var(--color-texto-sec);
+    font-size: 0.9rem;
+}
+
+/* ======== 9. Responsividad (Mobile-First) ======== */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+
+    /* Menú de navegación móvil (básico) */
+    .nav-menu {
+        display: none; /* Ocultar para un menú hamburguesa (requiere JS) */
+        /* Por simplicidad, lo haremos flexible */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: var(--color-superficie);
+    }
+    .navbar .container {
+        flex-direction: column;
+    }
+    .nav-menu li {
+        margin: 0.5rem 0;
+    }
+
+    /* Columnas a filas */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
